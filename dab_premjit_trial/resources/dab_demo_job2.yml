@@ -1,0 +1,19 @@
+resources:
+  jobs:
+    dab_demo_job:
+      name: dab_demo_job2
+      tasks:
+        - task_key: demo_notebook
+          notebook_task:
+            notebook_path: ../src/try.py
+            base_parameters:
+              catalog: "demo"
+              schema: "bakehouse"
+      queue:
+        enabled: true
+      parameters:
+        - name: catalog
+          default: demo
+        - name: schema
+          default: bakehouse
+      performance_target: PERFORMANCE_OPTIMIZED
